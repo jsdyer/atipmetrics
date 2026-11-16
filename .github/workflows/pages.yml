@@ -30,7 +30,8 @@ jobs:
             echo '::warning::Source refresh failed. Publishing the checked-in snapshot.'
           fi
           mkdir site
-          cp index.html app.mjs style.css data.json site
+          cp index.html app.mjs research.mjs style.css data.json site
+          python scripts/build_research.py --output site/research-data
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

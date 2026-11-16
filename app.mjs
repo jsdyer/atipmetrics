@@ -1,3 +1,5 @@
+import { showResearch } from './research.mjs';
+
 const get = (id) => document.getElementById(id);
 const law = get('law');
 const year = get('year');
@@ -63,6 +65,7 @@ function profile(focus = false) {
   }
   get('history').replaceChildren(...entries);
   get('request-search').href = '../atip/#' + new URLSearchParams({ q: state.selected }).toString();
+  showResearch(state.selected, year.value);
   if (focus) {
     panel.focus({ preventScroll: true });
     panel.scrollIntoView({ block: 'nearest' });
@@ -118,6 +121,7 @@ function render() {
     ? `Showing ${count(Math.min(rows.length, state.limit))} of ${count(rows.length)} institutions · ${year.value} · source checked ${state.data.built}`
     : 'No reporting institutions match this search.';
   syncHash();
+  if (state.selected) showResearch(state.selected, year.value);
 }
 
 function csvField(value) {
@@ -163,11 +167,12 @@ try {
   if (initial.get('scope') === 'exclude-ircc') scope.value = 'exclude-ircc';
   search.value = initial.get('q') ?? '';
   const institution = initial.get('institution');
+  render();
   if (institution && Object.values(state.data.years).some(data => Object.values(data).some(s => s.rows.some(r => r[0] === institution)))) {
     state.selected = institution;
     profile();
+    syncHash();
   }
-  render();
 } catch (error) {
   get('status').textContent = 'The data snapshot is unavailable. The source workbooks are listed below.';
   console.error(error);

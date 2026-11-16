@@ -54,12 +54,56 @@
       <thead><tr><th scope="col">Fiscal year</th><th scope="col">Law</th><th scope="col">Received</th><th scope="col">Closed</th><th scope="col">Within timeline</th><th scope="col">Carried over</th><th scope="col">Overdue</th></tr></thead>
       <tbody id="history"></tbody>
     </table></div>
-    <p><a id="request-search" href="../atip/">Search completed ATI summaries ↗</a></p>
+    <p><button class="link" id="research-jump" type="button">Research this institution ↓</button> · <a id="request-search" href="../atip/">Search completed ATI summaries ↗</a></p>
+  </section>
+  <section id="research" class="panel research" aria-labelledby="research-title" tabindex="-1" hidden>
+    <h2 id="research-title">Research this institution</h2>
+    <p>Find published ATI summaries and briefing note titles alongside the annual workload. The same disclosure registers are shown when the workload is set to the Privacy Act. Add citations, then edit one request draft.</p>
+    <form class="controls research-controls">
+      <label>Topic or reference number <input id="research-query" type="search" maxlength="200" placeholder="e.g. Real-Time Rail"></label>
+      <label>Record period <select id="research-period"><option value="fiscal">Selected fiscal year</option><option value="all">All available dates</option></select></label>
+    </form>
+    <p id="research-status" role="status"></p>
+    <div class="research-grid">
+      <section aria-labelledby="research-ati-heading">
+        <h3 id="research-ati-heading">Released ATI summaries</h3>
+        <p class="research-meta">Grouped by reported completion month</p>
+        <p id="research-ati-source" class="research-meta"></p>
+        <p id="research-ati-count" class="research-meta" role="status"></p>
+        <ul id="research-ati-list" class="research-list"></ul>
+        <button id="research-ati-more" type="button" hidden>More ATI summaries</button>
+      </section>
+      <section aria-labelledby="research-briefings-heading">
+        <h3 id="research-briefings-heading">Briefing note titles</h3>
+        <p class="research-meta">Grouped by date received</p>
+        <p id="research-briefings-source" class="research-meta"></p>
+        <p id="research-briefings-count" class="research-meta" role="status"></p>
+        <ul id="research-briefings-list" class="research-list"></ul>
+        <button id="research-briefings-more" type="button" hidden>More briefing notes</button>
+      </section>
+    </div>
+    <section class="research-draft" aria-labelledby="research-draft-title">
+      <h3 id="research-draft-title">Saved citations and request draft</h3>
+      <p id="research-saved-status" class="research-meta" role="status"></p>
+      <ul id="research-saved" class="research-list"></ul>
+      <button type="button" id="research-generate" disabled>Generate request draft</button>
+      <div id="research-editor" hidden>
+        <label for="research-text">Edit before submitting</label>
+        <textarea id="research-text" rows="12" spellcheck="true"></textarea>
+        <div class="research-actions">
+          <button type="button" id="research-copy">Copy draft</button>
+          <button type="button" id="research-download">Download draft</button>
+          <a href="https://atip-aiprp.apps.gc.ca/atip/welcome.do">Open the federal request portal ↗</a>
+        </div>
+      </div>
+      <p id="research-draft-status" role="status" class="research-meta"></p>
+    </section>
   </section>
   <section class="panel sources">
     <h2>Sources and definitions</h2>
     <p>Carried over counts open requests at fiscal year-end. Overdue counts the carried-over requests beyond the legislated timeline. The within-timeline rate uses closed requests as the denominator and includes extensions allowed by law. It is unavailable when no requests were closed.</p>
     <p>Counts describe whole institutions and fiscal years. ATI and Privacy Act figures describe separate workloads. Missing reports and renamed institutions can interrupt a series. Choose “Exclude IRCC” to compare results with Treasury Board reports that analyze Immigration, Refugees and Citizenship Canada separately.</p>
+    <p>The research workspace uses separate disclosure registers. Reporting months and dates received control its date filters. The underlying disclosures cover published ATI summaries and briefing titles.</p>
     <ul><li><a href="https://open.canada.ca/data/en/dataset/236294e1-bc74-486f-ab97-422227bc8832">Treasury Board of Canada Secretariat data catalogue</a></li>
       <li><a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/statistics-atip.html">Official statistical reports</a></li>
       <li><a href="https://open.canada.ca/en/open-government-licence-canada">Open Government Licence – Canada</a></li>
