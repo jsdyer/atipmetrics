@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare federal Access to Information and Privacy Act request volumes, timelines, and outstanding files by institution.">
+  <title>ATIP Metrics · CoolCode</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<header class="masthead">
+  <a href="/">CoolCode.ca</a>
+  <span>Public records</span>
+</header>
+<main>
+  <section class="intro">
+    <h1>ATIP Metrics</h1>
+    <p>Compare how federal institutions handle access to information and personal information requests. Follow received, closed, and outstanding files over fiscal years.</p>
+    <a href="../atip/">Search completed access requests ↗</a>
+  </section>
+  <form class="panel controls">
+    <label>Request type
+      <select id="law"><option value="ati">Access to Information Act</option><option value="privacy">Privacy Act</option></select>
+    </label>
+    <label>Fiscal year <select id="year" disabled></select></label>
+    <label>Institution <input id="search" type="search" placeholder="e.g. Transport Canada"></label>
+    <label>Order by <select id="sort">
+      <option value="received">Most received</option>
+      <option value="closed">Most closed</option>
+      <option value="carried">Largest outstanding workload</option>
+      <option value="overdue">Most overdue</option>
+      <option value="onTimeRate">Highest within timeline rate</option>
+    </select></label>
+    <label>Institution scope <select id="scope">
+      <option value="all">All reporting institutions</option>
+      <option value="exclude-ircc">Exclude IRCC</option>
+    </select></label>
+  </form>
+  <p id="status" role="status">Loading the official data snapshot…</p>
+  <section id="overview" class="cards" aria-label="Overview"></section>
+  <section class="panel" id="results" hidden>
+    <div class="section-head"><h2>Reporting institutions</h2><button type="button" id="export">Export CSV</button></div>
+    <div class="table-scroll" tabindex="0" aria-label="Institution statistics table"><table>
+      <thead><tr><th scope="col">Institution</th><th scope="col">Received</th><th scope="col">Closed</th><th scope="col">Within timeline</th><th scope="col">Carried over</th><th scope="col">Overdue</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p><button id="more" type="button" hidden>Show more institutions</button></p>
+  </section>
+  <section id="profile" class="panel" hidden tabindex="-1">
+    <h2 id="institution"></h2>
+    <p>Select an institution in the results to compare both laws across published years.</p>
+    <div class="table-scroll" tabindex="0" aria-label="Institution history table"><table>
+      <thead><tr><th scope="col">Fiscal year</th><th scope="col">Law</th><th scope="col">Received</th><th scope="col">Closed</th><th scope="col">Within timeline</th><th scope="col">Carried over</th><th scope="col">Overdue</th></tr></thead>
+      <tbody id="history"></tbody>
+    </table></div>
+    <p><a id="request-search" href="../atip/">Search completed ATI summaries ↗</a></p>
+  </section>
+  <section class="panel sources">
+    <h2>Sources and definitions</h2>
+    <p>Carried over counts open requests at fiscal year-end. Overdue counts the carried-over requests beyond the legislated timeline. The within-timeline rate uses closed requests as the denominator and includes extensions allowed by law. It is unavailable when no requests were closed.</p>
+    <p>Counts describe whole institutions and fiscal years. ATI and Privacy Act figures describe separate workloads. Missing reports and renamed institutions can interrupt a series. Choose “Exclude IRCC” to compare results with Treasury Board reports that analyze Immigration, Refugees and Citizenship Canada separately.</p>
+    <ul><li><a href="https://open.canada.ca/data/en/dataset/236294e1-bc74-486f-ab97-422227bc8832">Treasury Board of Canada Secretariat data catalogue</a></li>
+      <li><a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/statistics-atip.html">Official statistical reports</a></li>
+      <li><a href="https://open.canada.ca/en/open-government-licence-canada">Open Government Licence – Canada</a></li>
+      <li><a id="source" href="https://open.canada.ca/data/en/dataset/236294e1-bc74-486f-ab97-422227bc8832">Selected workbook</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
