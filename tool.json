@@ -1,0 +1,30 @@
+{
+  "id": "atipmetrics",
+  "title": "ATIP Metrics",
+  "description": "Compare institutional workloads, find related records and briefing notes, and build a request draft.",
+  "category": "explorers",
+  "tags": [
+    "atip",
+    "foi",
+    "freedom",
+    "of",
+    "information",
+    "privacy",
+    "requests",
+    "backlog",
+    "extensions",
+    "statistics",
+    "processing",
+    "times"
+  ],
+  "icon": "activity",
+  "url": "/atipmetrics/",
+  "source": "https://github.com/jsdyer/atipmetrics",
+  "hosting": "project",
+  "access": "browser",
+  "data_info": {
+    "mode": "snapshot",
+    "detail": "Treasury Board workbooks report access and privacy requests by institution and fiscal year.",
+    "cadence": "Monthly"
+  }
+}

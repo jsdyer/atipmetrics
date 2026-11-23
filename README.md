@@ -1,5 +1,9 @@
 # ATIP Metrics
 
+<!-- coolcode:guide -->
+Select an institution and keep Access to Information Act and Privacy Act results separate when comparing years. Use its research workspace to collect public disclosure citations and edit a request draft; a missing publisher match does not prove that no relevant records exist.
+<!-- /coolcode:guide -->
+
 Compare federal institutions' reported Access to Information Act and Privacy Act request volumes, closures, timelines, and carryovers. The two laws stay separate and each institution page displays the available years. The table is searchable, sortable, linkable, and exportable as CSV.
 
 ## Data and local preview
