@@ -25,3 +25,11 @@ Select a reporting institution to open the research workspace below its annual w
 The workspace matches normalized official names to unambiguous publisher IDs and uses a small set of verified display-name variants. Publishers are kept separate when a name does not resolve safely. A missing match or zero published results leaves open the possibility of other records. The index distinguishes released ATI packages from briefing titles. The latter identify potentially requestable records.
 
 Data sources under the Open Government Licence – Canada include the [Completed Access to Information Request Summaries](https://open.canada.ca/data/en/dataset/0797e893-751e-4695-8229-a5066e4fe43c) and [Briefing Note Titles and Numbers](https://open.canada.ca/data/en/dataset/ee9bd7e8-90a5-45db-9287-85c8cf3589b6). GitHub Actions rebuilds the institution shards. For local testing, run `python3 scripts/build_research.py` after building or restoring `data.json`. Use `--ati` and `--briefings` to supply official files already downloaded.
+
+<!-- schedule-reliability -->
+## Schedule reliability
+
+Public GitHub repositories can have scheduled workflows disabled after 60 days of inactivity. A separate weekly [schedule guard](.github/workflows/schedule-guard.yml) calls GitHub's enable-workflow API for an explicit list of refresh workflows and itself. It can restore workflows disabled for inactivity, preserves manually disabled workflows, and runs independently of collection failures.
+
+This is an interim mitigation, not a scheduling guarantee: GitHub does not document active-workflow renewal as a permanent exemption, and scheduled runs can be delayed or dropped. A scheduler on our own Linux server is the planned independent trigger. The guard does not collect data, create dummy commits, or change source/check timestamps; successful collection and published data freshness still need monitoring.
+<!-- /schedule-reliability -->
