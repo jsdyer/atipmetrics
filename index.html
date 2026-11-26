@@ -17,9 +17,8 @@
 </header>
 <main>
   <section class="intro">
-    <h1>ATIP Metrics</h1>
-    <p>Compare how federal institutions handle access to information and personal information requests. Follow received, closed, and outstanding files over fiscal years.</p>
-    <a href="../atip/">Search completed access requests ↗</a>
+    <h1>Compare federal access requests</h1>
+    <p>See how many information or privacy requests each institution received, closed or carried over. Choose a fiscal year or find an institution by name.</p>
   </section>
   <form class="panel controls">
     <label>Request type
@@ -43,6 +42,7 @@
   <section id="overview" class="cards" aria-label="Overview"></section>
   <section class="panel" id="results" hidden>
     <div class="section-head"><h2>Reporting institutions</h2><button type="button" id="export">Export CSV</button></div>
+    <p>Select an institution name to compare its history under both Acts.</p>
     <div class="table-scroll" tabindex="0" aria-label="Institution statistics table"><table>
       <thead><tr><th scope="col">Institution</th><th scope="col">Received</th><th scope="col">Closed</th><th scope="col">Within timeline</th><th scope="col">Carried over</th><th scope="col">Overdue</th></tr></thead>
       <tbody id="rows"></tbody>
@@ -51,7 +51,7 @@
   </section>
   <section id="profile" class="panel" hidden tabindex="-1">
     <h2 id="institution"></h2>
-    <p>Select an institution in the results to compare both laws across published years.</p>
+    <p>Annual figures under the Access to Information Act and the Privacy Act.</p>
     <div class="table-scroll" tabindex="0" aria-label="Institution history table"><table>
       <thead><tr><th scope="col">Fiscal year</th><th scope="col">Law</th><th scope="col">Received</th><th scope="col">Closed</th><th scope="col">Within timeline</th><th scope="col">Carried over</th><th scope="col">Overdue</th></tr></thead>
       <tbody id="history"></tbody>
@@ -106,6 +106,7 @@
     <p>Carried over counts open requests at fiscal year-end. Overdue counts the carried-over requests beyond the legislated timeline. The within-timeline rate uses closed requests as the denominator and includes extensions allowed by law. It is unavailable when no requests were closed.</p>
     <p>Counts describe whole institutions and fiscal years. ATI and Privacy Act figures describe separate workloads. Missing reports and renamed institutions can interrupt a series. Choose “Exclude IRCC” to compare results with Treasury Board reports that analyze Immigration, Refugees and Citizenship Canada separately.</p>
     <p>The research workspace uses separate disclosure registers. Reporting months and dates received control its date filters. The underlying disclosures cover published ATI summaries and briefing titles.</p>
+    <p>Workbooks contain annual figures. This tool checks for updates on the third of each month. <a href="../atip/">Search completed access requests ↗</a></p>
     <ul><li><a href="https://open.canada.ca/data/en/dataset/236294e1-bc74-486f-ab97-422227bc8832">Treasury Board of Canada Secretariat data catalogue</a></li>
       <li><a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/statistics-atip.html">Official statistical reports</a></li>
       <li><a href="https://open.canada.ca/en/open-government-licence-canada">Open Government Licence – Canada</a></li>

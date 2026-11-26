@@ -114,12 +114,13 @@ function render() {
     return row([button, ...values(record)]);
   }));
   get('more').hidden = rows.length <= state.limit;
+  get('more').textContent = `Show more institutions (${count(Math.min(rows.length, state.limit))} of ${count(rows.length)} shown)`;
   get('export').disabled = !rows.length;
   get('source').href = snapshot.source;
   get('results').hidden = false;
   get('status').textContent = rows.length
-    ? `Showing ${count(Math.min(rows.length, state.limit))} of ${count(rows.length)} institutions · ${year.value} · source checked ${state.data.built}`
-    : 'No reporting institutions match this search.';
+    ? `${names[law.value]} Act · ${year.value} · totals for ${count(rows.length)} ${rows.length === 1 ? "institution" : "institutions"} · source checked ${state.data.built}`
+    : 'No institutions match. Try a shorter name or change the fiscal year.';
   syncHash();
   if (state.selected) showResearch(state.selected, year.value);
 }
